@@ -3,6 +3,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 const connectDB = require("./Config/db");
 const userRoute = require("./Route/userRoute");
+const jobRoute = require("./Route/jobRoute");
 
 const PORT = process.env.PORT || 5000;
 
@@ -20,5 +21,6 @@ app.get("/", (req, res) => {
 });
 
 app.use("/", userRoute);
+app.use("/", jobRoute);
 
 const server = app.listen(PORT, console.log(`server is runnig on ${PORT}`));
