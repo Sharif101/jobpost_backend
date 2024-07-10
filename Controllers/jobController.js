@@ -28,10 +28,11 @@ const addJob = async (req, res) => {
   }
 };
 
-//get all job
+//get job by category
 const getalljob = async (req, res) => {
-  const jobs = await Job.find({});
-  res.json(jobs);
+  const value = req.params.category;
+  const jobs = await Job.find({ category: value });
+  res.send(jobs);
 };
 
 //single job delete
